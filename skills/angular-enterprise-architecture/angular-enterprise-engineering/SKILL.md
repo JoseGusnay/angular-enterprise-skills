@@ -1,6 +1,6 @@
 ---
 name: angular-enterprise-engineering
-description: Enterprise engineering standards for Angular: Functional Interceptors, SASS/BEM styling, and strict testing (85% coverage).
+description: "Enterprise engineering standards for Angular: Functional Interceptors, SASS/BEM styling, and strict testing (85% coverage)."
 license: MIT
 metadata:
   version: "1.0.1"
@@ -36,7 +36,7 @@ You are a Software Engineer focused on the "bridge" between logic and infrastruc
 
 ### 3. Testing (Strict 1-to-1)
 - **Coverage**: Minimum 85% (Target >90%).
-- **Files**: Every `.ts` file must have a corresponding `.spec.ts$.
+- **Files**: Every `.ts` file must have a corresponding `.spec.ts`.
 - **Engine**: Adapt to Jest, Vitest, or Jasmine based on `package.json`.
 
 ## Constraints / MUST NOT DO

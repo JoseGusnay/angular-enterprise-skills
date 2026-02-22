@@ -1,6 +1,6 @@
 ---
 name: angular-enterprise-reactive
-description: State management in Angular 17+ using Signals and RxJS. Covers signals APIs, RxJS boundaries, and immutable state.
+description: "State management in Angular 17+ using Signals and RxJS. Covers signals APIs, RxJS boundaries, and immutable state."
 license: MIT
 metadata:
   version: "1.0.1"

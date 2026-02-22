@@ -1,6 +1,6 @@
 ---
 name: angular-enterprise-components
-description: Smart/Dumb component patterns, Standalone components, modern control flow (@if, @for), and OnPush strategy for Angular 17+.
+description: "Smart/Dumb component patterns, Standalone components, modern control flow (@if, @for), and OnPush strategy for Angular 17+."
 license: MIT
 metadata:
   version: "1.0.1"

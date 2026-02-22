@@ -1,6 +1,6 @@
 ---
 name: angular-enterprise-core
-description: Standards for Angular 17+ Enterprise Architecture. Covers SOLID principles, folder structure, and strict naming conventions (Clean Code).
+description: "Standards for Angular 17+ Enterprise Architecture. Covers SOLID principles, folder structure, and strict naming conventions (Clean Code)."
 license: MIT
 metadata:
   version: "1.0.1"

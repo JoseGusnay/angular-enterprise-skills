@@ -1,6 +1,6 @@
 ---
 name: angular-enterprise-review
-description: Professional Code Auditor for Angular Enterprise Architecture. Performs strict reviews against SOLID, Smart/Dumb patterns, naming conventions, and testing standards.
+description: "Professional Code Auditor for Angular Enterprise Architecture. Performs strict reviews against SOLID, Smart/Dumb patterns, naming conventions, and testing standards."
 license: MIT
 metadata:
   version: "1.0.0"
