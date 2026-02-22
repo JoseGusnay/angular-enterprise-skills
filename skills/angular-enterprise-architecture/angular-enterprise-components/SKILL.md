@@ -47,6 +47,7 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 - **ARIA**: Mandatory `aria-label` for icon-only buttons. Use `aria-expanded` and `aria-controls` for dropdowns/collapsibles.
 - **Sonar Template Size**: Templates MUST NOT exceed **200 lines**. If a template is too long, it's an "Organism" that should be broken down into "Molecules".
 - **DRY Templates**: Use `@if` and `@for` (with `track`) to avoid duplicating HTML structures. No dead CSS selectors or unused variables.
+- **Strict File Separation**: Inline templates (`template: '...'`) or inline styles (`styles: [...]`) are FORBIDDEN. Every component MUST have its own `.ts`, `.html`, `.scss`, and `.spec.ts` files.
 
 ## Constraints / MUST NOT DO
 - **NO Logic in UI**: Business logic or Service injection in `shared/ui/` is a CRITICAL violation.
