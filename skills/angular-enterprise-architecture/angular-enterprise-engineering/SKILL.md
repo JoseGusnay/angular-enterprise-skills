@@ -38,7 +38,12 @@ You are a Software Engineer focused on the "bridge" between logic and infrastruc
 > [!IMPORTANT]
 > **Coverage is just the beginning**. Your tests must also verify A11y and avoid Sonar code smells.
 - **Coverage**: Minimum 85% (Target >90%).
-- **A11y Testing**: Use `axe-core` or similar for automated accessibility checks in unit/integration tests.
+- **Files**: Every `.ts` file must have a corresponding `.spec.ts`.
+- **Engine**: Adapt to Jest, Vitest, or Jasmine based on `package.json`.
+- **Sonar for Tests (Clean & Secure)**:
+    - **Dead Code**: Prohibited unused imports or declared variables that are never used in the spec.
+    - **Hardcoded Security**: **NEVER** include tokens, credentials, private URIs, or internal IP addresses in test files. Use mocks or generic dummy data (e.g., `https://api.example.com`).
+- **A11y Testing**: Use `axe-core` for automated accessibility checks in unit/integration tests.
 - **Complexity Check**: Every test suite must remain simple (DRY). Do not duplicate setup code; use `forEach` and factories.
 
 ## Constraints / MUST NOT DO
