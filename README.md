@@ -27,13 +27,13 @@ He incluido dos scripts para ayudarte a crear tus propios skills rápidamente:
 
 ## 🚀 Instalación en Proyectos
 
-Para usar estos skills en un proyecto nuevo de forma oficial:
+Para usar estos skills en cualquier proyecto de Angular, ejecuta el siguiente comando:
 
-1. Subre este repositorio a tu **GitHub**.
-2. En tu nuevo proyecto, ejecuta:
-   ```bash
-   npx skills add tu-usuario/este-repositorio
-   ```
+```bash
+npx skills add JoseGusnay/angular-enterprise-skills
+```
+
+Este comando descargará e instalará automáticamente los estándares en tu proyecto actual (generalmente en la carpeta `.agent/skills/` o similar).
 
 ## 🤖 Uso con el Agente
 
