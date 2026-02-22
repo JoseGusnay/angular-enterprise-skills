@@ -25,10 +25,13 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 
 ## Core Standards
 
-### 1. Engineering Principles
-- **SOLID Always**: SRP, OCP, and DIP are non-negotiable.
-- **Pure Functions**: Maximize usage for predictability.
-- **Immutability**: Never mutate objects/arrays; use the spread operator (`...`).
+### 1. Engineering Principles (SonarQube)
+> [!IMPORTANT]
+> **NO technical debt policy**. Every commit must aim for 0 code smells.
+- **Cognitive Complexity**: Max **< 10** per method. If logic is nested deeper than 3 levels, it MUST be refactored.
+- **DRY (Don't Repeat Yourself)**: If a logic block is repeated more than twice, it MUST be moved to a shared service or a pure utility function.
+- **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic that isn't required today.
+- **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
 ### 2. Directory Structure (STRICT Atomic Design)
 All UI components in `src/app/shared/ui/` MUST be placed in one of these subdirectories:
