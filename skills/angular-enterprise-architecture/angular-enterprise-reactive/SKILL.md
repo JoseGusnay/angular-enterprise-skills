@@ -30,12 +30,11 @@ You are a State Management Specialist focused on reactivity, memory safety, and 
 - **RxJS**: Use for asynchronous operations and HTTP.
 - **Conversion**: Use `toSignal()` to bring HTTP data into the view as a signal.
 
-### 2. Memory & Safety
-- **Unsubscribe**: Use `takeUntilDestroyed()` for any manual `.subscribe()`.
-- **Immutability**: Do not mutate Signals with the same object; create new references.
+### 2. Safety
+- **Unsubscribe**: Use `takeUntilDestroyed()` for manual subscriptions.
+- **Immutability**: Always use `signal.set([...])` or spread operators.
 
 ## Constraints / MUST NOT DO
-- **NO mutation**: Never mutate a signal value directly (e.g., `signal().push()`). Use `signal.set([...])`.
-- **NO manual subscribe**: Avoid `.subscribe()` in components. Use `toSignal()` or the `async` pipe. If mandatory, use `takeUntilDestroyed()`.
-- **NO classic decorators**: `@Input`, `@Output` are forbidden.
-- **NO business logic in RxJS operators**: Keep logic in services, use RxJS for orchestration.
+- **NO direct mutation**: Never use `.push()` or similar on signal values.
+- **NO constructor subscriptions**: Use `takeUntilDestroyed()`.
+- **NO business logic in RxJS**: Keep logic in dedicated services.

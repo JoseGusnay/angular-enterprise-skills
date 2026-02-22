@@ -4,7 +4,7 @@ description: "Standards for Angular 17+ Enterprise Architecture. Covers SOLID pr
 license: MIT
 metadata:
   version: "1.0.1"
-  triggers: ".ts, architecture, folder structure, naming conventions, SOLID, class, interface, package.json"
+  triggers: ".ts, architecture, folder structure, naming conventions, SOLID, class, interface, package.json, feature, new module"
   role: architect
   scope: design
   related-skills: angular-enterprise-components, angular-enterprise-review
@@ -33,13 +33,12 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic that isn't required today.
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
-### 2. Directory Structure (STRICT Atomic Design)
-All UI components in `src/app/shared/ui/` MUST be placed in one of these subdirectories:
-- `atoms/`: **Building Blocks**. Smallest units (Buttons, Icons, Badges, Inputs). No business dependencies.
-- `molecules/`: **Simple UI Groups**. Groups of atoms (Search Inputs, Labeled Inputs, Card Headers). Logic is purely UI-focused.
-- `organisms/`: **Functional UI Blocks**. High-level structures (Nav Bars, Hero Sections, Data Grids). May orchestrate multiple atoms/molecules.
-- `templates/`: **Abstract Layouts**. Skeleton containers for pages.
-- `src/app/features/`: **Smart Components/Pages**. Business logic, service injection, and data fetching live HERE only.
+### 2. Directory Structure & Organization
+- **Smart Components**: `src/app/features/`. Business logic, service injection, and data fetching live HERE only.
+- **Shared UI**: `src/app/shared/ui/`. Must follow **Atomic Design** (Atoms, Molecules, Organisms).
+  - *Note: For detailed UI categorization rules, see [angular-enterprise-components](file:///c:/Users/usuario/Documents/skills/skills/angular-enterprise-architecture/angular-enterprise-components/SKILL.md).*
+- **Shared Utilities**: `src/app/shared/utils/`. Pure functions and helpers.
+- **Core Strategy**: Use `standalone: true` and `inject()` for all new developments.
 
 ### 3. Naming Conventions
 - **Classes/Interfaces**: `PascalCase`. (No "I" prefix for interfaces).

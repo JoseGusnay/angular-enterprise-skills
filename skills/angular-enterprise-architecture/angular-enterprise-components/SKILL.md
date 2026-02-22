@@ -26,31 +26,26 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 ## Guidelines
 
 ### 1. Atomic Design Categorization Rules
-- **Atoms (The "Independents")**: 
+- **Atoms (Building Blocks)**: 
     - MUST NOT depend on any other component.
-    - MUST NOT have internal state other than UI state (e.g., hover).
-    - MUST NOT be aware of the domain.
-    - **A11y**: Must be focusable if interactive; must have appropriate ARIA attributes.
-- **Molecules (The "Simple Groups")**: 
+    - MUST NOT have internal domain logic.
+    - MUST be keyboard-navigable and have ARIA labels if icon-only.
+- **Molecules (Functional Groups)**: 
     - MUST consist of at least one Atom.
-    - MUST represent a single visual pattern.
-    - **A11y**: Must manage focus transition between internal atoms.
-- **Organisms (The "Complex Sections")**: 
+    - Represents a single UI pattern (e.g., a search bar = input atom + button atom).
+- **Organisms (Complex Sections)**: 
     - CAN contain Atoms, Molecules, and other Organisms.
-    - Represents a distinct, reusable section of the interface.
-    - **Sonar**: Avoid large templates (> 200 lines). Split into molecules if too complex.
+    - Distinct reusable section (e.g., Header, Data Grid).
+    - Template size MUST NOT exceed **200 lines**.
 
-### 2. General Quality (A11y & Sonar)
+### 2. UI Quality & A11y
 > [!IMPORTANT]
-> **Accessibility is NOT optional**. Components that are not keyboard-navigable or lack ARIA labels MUST be rejected.
-- **Semantic HTML**: Use native elements (`<button>`, `<nav>`, `<main>`). If using a `<div>` as an interactive element is unavoidable, it MUST have `role`, `tabindex`, and keyboard listeners (`(keydown.enter)`).
-- **ARIA**: Mandatory `aria-label` for icon-only buttons. Use `aria-expanded` and `aria-controls` for dropdowns/collapsibles.
-- **Sonar Template Size**: Templates MUST NOT exceed **200 lines**. If a template is too long, it's an "Organism" that should be broken down into "Molecules".
-- **DRY Templates**: Use `@if` and `@for` (with `track`) to avoid duplicating HTML structures. No dead CSS selectors or unused variables.
-- **Strict File Separation**: Inline templates (`template: '...'`) or inline styles (`styles: [...]`) are FORBIDDEN. Every component MUST have its own `.ts`, `.html`, `.scss`, and `.spec.ts` files.
+> **Accessibility is NOT optional**. Components must be keyboard-focusable and use semantic HTML.
+- **Semantic HTML**: Prioritize `<button>`, `<nav>`, `<main>`.
+- **Strict Separation**: Every component MUST have its own `.ts`, `.html`, `.scss`, and `.spec.ts` files. NO inline templates or styles.
+- **Change Detection**: `ChangeDetectionStrategy.OnPush` is mandatory for all UI components.
 
 ## Constraints / MUST NOT DO
-- **NO Logic in UI**: Business logic or Service injection in `shared/ui/` is a CRITICAL violation.
-- **NO Flat structure**: Placing a component directly in `shared/ui/` without Atomic categorization is PROHIBITED.
-- **NO classic decorators**: Do not use `@Input`, `@Output`, or `@ViewChild`. Use signals.
-- **NO Default detection**: Using `ChangeDetectionStrategy.Default` is prohibited.
+- **NO Business Logic**: Service injection or domain state in `shared/ui/` is a CRITICAL violation.
+- **NO Default detection**: Prohibited.
+- **NO Signal Decorators**: Use `input()`, `output()`, and `model()` signals ONLY.
