@@ -30,10 +30,14 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Pure Functions**: Maximize usage for predictability.
 - **Immutability**: Never mutate objects/arrays; use the spread operator (`...`).
 
-### 2. Directory Structure
+### 2. Directory Structure (Atomic Design)
 - `src/app/core/`: Global logic (Singleton), Functional Guards, and Interceptors.
-- `src/app/shared/ui/`: Atomic Design (Atoms, Molecules, Organisms). "Dumb" components only.
-- `src/app/features/`: Business domains (Smart Components & Pages).
+- `src/app/shared/ui/`: Dumb components following Atomic Design:
+    - `atoms/`: Basic building blocks (buttons, inputs, icons).
+    - `molecules/`: Groups of atoms (search bars, form fields).
+    - `organisms/`: Complex groups (headers, card lists, nav bars).
+    - `templates/`: Page layouts (layout-containers).
+- `src/app/features/`: Business domains. Contains "Smart" components and Pages.
 - `src/assets/styles/`: Global SASS (Tokens, Base, Mixins).
 
 ### 3. Naming Conventions

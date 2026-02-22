@@ -27,6 +27,7 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 
 ### 1. Architecture & Patterns
 - [ ] Is it a Smart or Dumb component? Does it follow the correct folder (`features/` vs `shared/ui/`)?
+- [ ] **Atomic Design Compliance**: If it's in `shared/ui/`, is it correctly categorized as Atom, Molecule, or Organism?
 - [ ] Are they using `inject()` instead of constructors?
 - [ ] Is it `standalone: true`?
 

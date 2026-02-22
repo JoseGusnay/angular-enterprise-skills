@@ -25,9 +25,12 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 
 ## Guidelines
 
-### 1. Smart vs. Dumb Pattern
-- **Smart Components** (`features/`): Manage logic, inject services, orchestrate state.
-- **Dumb Components** (`shared/ui/`): Pure UI. Data in via `input()`, events out via `output()`. **NO** business logic or HTTP services.
+### 1. Smart vs. Dumb Pattern (Atomic Design)
+- **Smart Components** (`features/`): Manage logic, inject services, orchestrate state. They represent the "Pages" or complex "Organisms" that are data-aware.
+- **Dumb Components** (`shared/ui/`): Pure UI. Data in via `input()`, events out via `output()`.
+    - **Atoms**: Single responsibility components (e.g., `app-button`). No dependencies.
+    - **Molecules**: Complex UI patterns (e.g., `app-search-input`). May depend on atoms.
+    - **Organisms**: High-level UI fragments (e.g., `app-user-card-list`). May depend on atoms and molecules.
 
 ### 2. Component Structure
 - **Standalone**: All components must be `standalone: true`.
