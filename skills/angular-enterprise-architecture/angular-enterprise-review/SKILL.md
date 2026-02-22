@@ -31,7 +31,7 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 - [ ] **Molecules**: Does it combine multiple atoms? Does it represent a single UI pattern?
 - [ ] **Organisms**: Is it a reusable interface section? Does it orchestration logic (Dumb logic)?
 - [ ] **Pages/Smart**: Is there any business logic in `shared/ui/`? (CRITICAL FAILURE if found).
-- [ ] **Files**: Are logic, template, and styles separated? (NO inline templates or styles).
+- [ ] **File Separation**: Does the component have **4 distinct files** (`.ts`, `.html`, `.scss`, `.spec.ts`)? (REJECT inline templates or styles).
 
 ### 2. General Architecture & Patterns
 - [ ] Is it `standalone: true`?
