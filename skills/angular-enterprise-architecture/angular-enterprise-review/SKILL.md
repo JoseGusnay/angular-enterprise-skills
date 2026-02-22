@@ -59,7 +59,18 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 - [ ] **SonarQube**: Is the code DRY? (Zero duplication in logic or styles).
 - [ ] **SonarQube**: 100% dead code removal? (No unused imports, variables, or private methods).
 
-### 4. Naming & Clean Code
+### 4. Advanced Architecture (Senior Lead)
+- [ ] **Circular Dependencies**: Are there imports between feature modules? (REJECT if found. Use a shared service or core).
+- [ ] **Encapsulation**: Are class members `private` or `protected` by default? Is the Public API restricted?
+- [ ] **Modern RxJS**: Are deprecated operators used? (e.g., replace `toPromise` with `firstValueFrom`).
+
+### 5. Performance & Signals (Expert)
+- [ ] **Signal Maturity**: Can `input()`/`output()` signals replace `@Input()`/`@Output()`? (REJECT legacy decorators).
+- [ ] **Smart Queries**: Can `viewChild()`/`contentChild()` replace decorators?
+- [ ] **Template Cost**: Large templates (> 200 lines) detected? Are heavy sections inside `@defer`?
+- [ ] **Computed Efficiency**: Are `computed()` signals avoiding complex business logic or loops?
+
+### 6. Naming & Clean Code
 - [ ] **Naming**: PascalCase for classes? camelCase for variables? No "I" prefix?
 - [ ] **Descriptive**: Are names descriptive and acronym-free (e.g., `userTransactions`)?
 - [ ] **Pure Functions**: Is business logic extracted into pure, side-effect-free functions where possible?
