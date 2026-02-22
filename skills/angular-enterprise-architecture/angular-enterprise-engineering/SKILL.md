@@ -35,8 +35,8 @@ You are a Software Engineer focused on the "bridge" between logic and infrastruc
 - **Mandatory SASS**: Always use `.scss`.
 
 ### 3. Testing & Coverage
+- **1:1 Ratio**: EVERY logic file (`.ts`) MUST have a corresponding `.spec.ts`. This applies to Services, Pipes, Interceptors, and Utilities, not just Components.
 - **Coverage**: Minimum **85%** mandatory. Target **>90%**.
-- **Requirement**: Every `.ts` file must have a matching `.spec.ts`.
 - **Standards**: No `describe.skip`. Use mocks for all external services/APIs.
 
 ## Constraints / MUST NOT DO

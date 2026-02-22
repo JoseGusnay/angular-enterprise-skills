@@ -37,7 +37,8 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 - [ ] **Signals**: Are signals used instead of legacy decorators?
 
 ### 3. Engineering & Performance
-- [ ] **Testing**: Does it have a `.spec.ts` with >85% coverage?
+- [ ] **1:1 Testing**: Does **EVERY** single `.ts` file (Components, Services, Pipes, Interceptors, Utils) have a matching `.spec.ts`? (CRITICAL).
+- [ ] **Coverage**: Is the coverage actually >85% for those files?
 - [ ] **Styles**: Is BEM used for SCSS? Are CSS variables (tokens) applied?
 - [ ] **Reactivity**: Are subscriptions protected with `takeUntilDestroyed()`?
 - [ ] **Complexity**: Is Cognitive Complexity < 10?
