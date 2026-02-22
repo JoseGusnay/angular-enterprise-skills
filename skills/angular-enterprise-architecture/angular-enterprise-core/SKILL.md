@@ -30,15 +30,13 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Pure Functions**: Maximize usage for predictability.
 - **Immutability**: Never mutate objects/arrays; use the spread operator (`...`).
 
-### 2. Directory Structure (Atomic Design)
-- `src/app/core/`: Global logic (Singleton), Functional Guards, and Interceptors.
-- `src/app/shared/ui/`: Dumb components following Atomic Design:
-    - `atoms/`: Basic building blocks (buttons, inputs, icons).
-    - `molecules/`: Groups of atoms (search bars, form fields).
-    - `organisms/`: Complex groups (headers, card lists, nav bars).
-    - `templates/`: Page layouts (layout-containers).
-- `src/app/features/`: Business domains. Contains "Smart" components and Pages.
-- `src/assets/styles/`: Global SASS (Tokens, Base, Mixins).
+### 2. Directory Structure (STRICT Atomic Design)
+All UI components in `src/app/shared/ui/` MUST be placed in one of these subdirectories:
+- `atoms/`: **Building Blocks**. Smallest units (Buttons, Icons, Badges, Inputs). No business dependencies.
+- `molecules/`: **Simple UI Groups**. Groups of atoms (Search Inputs, Labeled Inputs, Card Headers). Logic is purely UI-focused.
+- `organisms/`: **Functional UI Blocks**. High-level structures (Nav Bars, Hero Sections, Data Grids). May orchestrate multiple atoms/molecules.
+- `templates/`: **Abstract Layouts**. Skeleton containers for pages.
+- `src/app/features/`: **Smart Components/Pages**. Business logic, service injection, and data fetching live HERE only.
 
 ### 3. Naming Conventions
 - **Classes/Interfaces**: `PascalCase`. (No "I" prefix for interfaces).

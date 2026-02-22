@@ -1,0 +1,17 @@
+# Angular Enterprise Project Rules (STRICT ENFORCEMENT)
+
+ALWAYS prioritize and follow the instructions defined in the `./skills/angular-enterprise-architecture/` directory.
+
+## 🚀 PRIMARY DIRECTIVE: ATOMIC DESIGN
+Before creating ANY UI component, you MUST categorize it. There is NO middle ground.
+1. **Atoms**: `src/app/shared/ui/atoms/` (No dependencies).
+2. **Molecules**: `src/app/shared/ui/molecules/` (Groups of atoms).
+3. **Organisms**: `src/app/shared/ui/organisms/` (Complex sections).
+4. **Templates**: `src/app/shared/ui/templates/` (Layouts).
+
+**Business Components** (Smart/Pages) MUST go to `src/app/features/`.
+
+## 🛠️ Implementation Rules
+- **Reactivity**: Use Signals for UI state. Prohibit classic decorators (`@Input`, `@Output`).
+- **Styles**: BEM methodology is mandatory for `.scss` files.
+- **Verification**: ALWAYS perform a self-audit using the `angular-enterprise-review` skill before responding to the user.

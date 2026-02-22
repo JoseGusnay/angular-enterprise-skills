@@ -25,26 +25,20 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 
 ## Guidelines
 
-### 1. Smart vs. Dumb Pattern (Atomic Design)
-- **Smart Components** (`features/`): Manage logic, inject services, orchestrate state. They represent the "Pages" or complex "Organisms" that are data-aware.
-- **Dumb Components** (`shared/ui/`): Pure UI. Data in via `input()`, events out via `output()`.
-    - **Atoms**: Single responsibility components (e.g., `app-button`). No dependencies.
-    - **Molecules**: Complex UI patterns (e.g., `app-search-input`). May depend on atoms.
-    - **Organisms**: High-level UI fragments (e.g., `app-user-card-list`). May depend on atoms and molecules.
-
-### 2. Component Structure
-- **Standalone**: All components must be `standalone: true`.
-- **4 Files**: Every component must have `.ts`, `.html`, `.scss`, and `.spec.ts`.
-- **Functional Injection**: Always use `inject()` instead of constructors.
-
-### 3. Optimization
-- **OnPush Always**: Use `ChangeDetectionStrategy.OnPush` in ALL components.
-- **Modern Flow**: Use `@if`, `@for` (with `track` obligatorio), and `@switch`.
-- **Lazy Loading**: Use `@defer` for heavy components.
+### 1. Atomic Design Categorization Rules
+- **Atoms (The "Independents")**: 
+    - MUST NOT depend on any other component.
+    - MUST NOT have internal state other than UI state (e.g., hover).
+    - MUST NOT be aware of the domain.
+- **Molecules (The "Simple Groups")**: 
+    - MUST consist of at least one Atom.
+    - MUST represent a single visual pattern.
+- **Organisms (The "Complex Sections")**: 
+    - CAN contain Atoms, Molecules, and other Organisms.
+    - Represents a distinct, reusable section of the interface.
 
 ## Constraints / MUST NOT DO
+- **NO Logic in UI**: Business logic or Service injection in `shared/ui/` is a CRITICAL violation.
+- **NO Flat structure**: Placing a component directly in `shared/ui/` without Atomic categorization is PROHIBITED.
 - **NO classic decorators**: Do not use `@Input`, `@Output`, or `@ViewChild`. Use signals.
 - **NO Default detection**: Using `ChangeDetectionStrategy.Default` is prohibited.
-- **NO logic in Dumb components**: Business logic in `shared/ui/` is a breaking architectural error.
-- **NO inline HTML/CSS**: Keep files separated for clean versioning.
-- **NO `trackBy` function**: Use the new `@for (...) { }` syntax with a direct property path.

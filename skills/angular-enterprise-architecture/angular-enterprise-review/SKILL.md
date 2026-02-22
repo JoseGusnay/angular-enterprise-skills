@@ -25,11 +25,16 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 
 ## Audit Checklist (Critical Path)
 
-### 1. Architecture & Patterns
-- [ ] Is it a Smart or Dumb component? Does it follow the correct folder (`features/` vs `shared/ui/`)?
-- [ ] **Atomic Design Compliance**: If it's in `shared/ui/`, is it correctly categorized as Atom, Molecule, or Organism?
-- [ ] Are they using `inject()` instead of constructors?
+### 1. Atomic Design Audit (CRITICAL)
+- [ ] **Categorization**: Is the component in `atoms/`, `molecules/`, or `organisms/`? (NO flat folders).
+- [ ] **Atoms**: Does it have zero dependencies on other components? Is it purely presentational?
+- [ ] **Molecules**: Does it combine multiple atoms? Does it represent a single UI pattern?
+- [ ] **Organisms**: Is it a reusable interface section? Does it orchestration logic (Dumb logic)?
+- [ ] **Pages/Smart**: Is there any business logic in `shared/ui/`? (CRITICAL FAILURE if found).
+
+### 2. General Architecture & Patterns
 - [ ] Is it `standalone: true`?
+- [ ] Are they using `inject()` instead of constructors?
 
 ### 2. Reactivity & State
 - [ ] Are they using `input()`/`output()` signals? (Decorators are NOT allowed).
