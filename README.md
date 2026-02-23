@@ -41,14 +41,5 @@ Solo menciona el skill o deja que el agente lo active por contexto:
 - *"Revisa mi código usando el skill de auditoría."*
 - *"Crea un componente siguiendo nuestras reglas enterprise."*
 
-## ❓ Preguntas Frecuentes
-
-### ¿Por qué se crean las carpetas `.agent` y `.agents`?
-La herramienta `npx skills` instala los archivos en ambas rutas para garantizar compatibilidad:
-- **`.agent`**: Estándar para Antigravity y Claude Code.
-- **`.agents`**: Usada por otros editores como Cursor o Windsurf.
-
-**Recomendación:** Si solo usas Antigravity, puedes borrar la carpeta `.agents` (con la 's' al final) para mantener tu proyecto limpio.
-
 ---
 Desarrollado con ❤️ para maximizar la productividad con IA.

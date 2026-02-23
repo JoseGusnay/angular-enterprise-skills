@@ -53,3 +53,14 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **NO acronyms**: Variable names must be descriptive (e.g., `userTransactions`, not `usrTxns`).
 - **NO "I" prefix**: Use `User`, not `IUser`.
 - **NO logic in files**: Keep `.ts` files focused; avoid "God Objects".
+
+## File Creation Rule (MANDATORY)
+> [!IMPORTANT]
+> **Every `.ts` file you create MUST have a companion `.spec.ts` file.** This applies to ALL file types without exception:
+> - Feature components → `my-feature.component.spec.ts`
+> - Services → `my-feature.service.spec.ts`
+> - Pipes → `my-pipe.pipe.spec.ts`
+> - Interceptors → `my-interceptor.interceptor.spec.ts`
+> - Utility functions → `my-util.spec.ts`
+>
+> **Never deliver a `.ts` file without its `.spec.ts` pair.**
