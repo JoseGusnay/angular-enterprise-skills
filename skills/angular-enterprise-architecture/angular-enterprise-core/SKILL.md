@@ -36,7 +36,7 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 ### 2. Directory Structure & Organization
 - **Smart Components**: `src/app/features/`. Business logic, service injection, and data fetching live HERE only.
 - **Shared UI**: `src/app/shared/ui/`. Must follow **Atomic Design** (Atoms, Molecules, Organisms).
-  - *Note: For detailed UI categorization rules, see [angular-enterprise-components](file:///c:/Users/usuario/Documents/skills/skills/angular-enterprise-architecture/angular-enterprise-components/SKILL.md).*
+  - *For detailed UI categorization rules, refer to the `angular-enterprise-components` skill.*
 - **Shared Utilities**: `src/app/shared/utils/`. Pure functions and helpers.
 - **Core Strategy**: Use `standalone: true` and `inject()` for all new developments.
 
