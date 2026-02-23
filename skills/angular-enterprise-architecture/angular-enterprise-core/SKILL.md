@@ -47,6 +47,7 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Files**: Strict `kebab-case`.
 
 ## Constraints / MUST NOT DO
+- **NO Constructors**: `constructor()` is completely forbidden. Use `inject()` for all Dependency Injection.
 - **NO `any`**: Use specific types or `unknown` with type guards.
 - **NO `Moment.js`**: Use native `Intl`, `date-fns`, or `dayjs`.
 - **NO acronyms**: Variable names must be descriptive (e.g., `userTransactions`, not `usrTxns`).
