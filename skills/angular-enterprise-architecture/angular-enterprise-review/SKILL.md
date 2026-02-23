@@ -41,8 +41,8 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 
 ### 3. Data & State Audit (Data)
 - [ ] **Signals**: Are signals used for synchronous state? (No legacy `@Input()`/`@Output()`).
-- [ ] **NO `.subscribe()` in Services**: Does any service or store use manual `.subscribe()` inside its methods? (MUST be flagged as an anti-pattern).
-- [ ] **RxJS**: Are subscriptions in components protected with `takeUntilDestroyed()`?
+- [ ] **NO `.subscribe()` in Services/Stores**: Does any service or store use manual `.subscribe()` inside its methods? (MUST be flagged as an anti-pattern; they should return Observables).
+- [ ] **Protected Subscriptions**: Are subscriptions in **Components** protected with `takeUntilDestroyed()` or the `async` pipe?
 - [ ] **Interceptors**: Are functional interceptors used instead of classes?
 
 ### 4. Engineering & Performance (Testing)

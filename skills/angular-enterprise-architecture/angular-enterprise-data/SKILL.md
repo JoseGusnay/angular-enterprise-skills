@@ -25,14 +25,12 @@ You are a State Management and Integration Specialist focused on reactivity, mem
 
 ## Standards
 
-### 1. Signals vs RxJS (Declarative Approach)
+### 1. Signals vs RxJS (Stable Approach)
 - **Signals**: Use for synchronous application and component state. APIs: `signal()`, `computed()`, `input()`, `output()`, `model()`, `viewChild()`.
-- **RxJS**: Use ALMOST EXCLUSIVELY for asynchronous operations and event streams.
-- **Async State (Angular 19/20+)**: Prefer **`rxResource()`** for data fetching. 
-    - **Note (Angular 20+)**: The property `loader` has been renamed to **`stream`** and `request` to **`params`**. Use the correct naming based on your project version.
-    - **Typing**: Computed signals derived from a resource MUST have an explicit initial value or fallback (e.g., `this.resource.value() ?? []`) to avoid `any` or `{}` issues.
-- **Trigger-based Signals**: To trigger actions (like a refresh or search), use a private `Subject` or `signal`, and pipe it to an observable that `toSignal()` consumes.
-- **NO manual `.subscribe()`**: Never use manual `.subscribe()` inside methods to update state. Use `toSignal()`, `rxResource()`, or the `async` pipe. For side-effects, use `tap()` within a pipe *before* converting to a signal.
+- **RxJS**: Use for asynchronous operations and event streams.
+- **Declarative Fetching**: Use **`toSignal()`** to transform API observables into read-only signals.
+- **State Updates**: Store methods should return `Observable<T>`. This allows the **Component** to subscribe and trigger the action, while the Store uses `tap()` to update its internal signals.
+- **NO manual `.subscribe()` in Services/Stores**: Never use manual `.subscribe()` inside a service or store method. Return the `Observable` and let the **Component** handle the subscription (using `takeUntilDestroyed()`).
 
 ### 2. Functional HTTP Interceptors
 - **Modern API**: Use `HttpInterceptorFn` (no class-based interceptors).
@@ -46,9 +44,8 @@ You are a State Management and Integration Specialist focused on reactivity, mem
 
 ## Constraints / MUST NOT DO
 - **NO State in API Services**: Service files that perform HTTP calls must not hold Signals or loading flags. State belongs to Stores/State Services.
-- **NO manual `.subscribe()` inside methods (Service/Store)**: This is ABSOLUTELY PROHIBITED. Do not use `.subscribe()` to update signal state inside a class method.
-    - **For Fetching (GET)**: Use `rxResource()` (preferred) or `toSignal()`.
-    - **For Mutations (POST/PUT/DELETE)**: Use a declarative stream via `toSignal()` with a trigger signal, or return the `Observable` so the **Component** can handle the subscription (using `takeUntilDestroyed()`).
+- **NO manual `.subscribe()` inside methods (Service/Store)**: This is ABSOLUTELY PROHIBITED. Do not use `.subscribe()` to update signal state inside a class method. Return the `Observable` instead.
+- **Mandatory Subscription Protection**: All subscriptions in **Components** must be protected with `takeUntilDestroyed()` or the `async` pipe.
 - **NO `takeUntilDestroyed()` inside `ngOnInit`**: Calling `takeUntilDestroyed()` without passing a `DestroyRef` outside of an injection context throws a runtime error (NG0203).
 - **NO `constructor()`**: Use `inject()` for all dependency injection. Empty constructors are forbidden.
 - **NO direct mutation**: Never use `.push()` or similar mutating methods on signal values.
