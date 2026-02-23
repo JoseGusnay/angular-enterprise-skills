@@ -44,6 +44,13 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
     - Specific instances of templates showing what the UI looks like with real representative content.
     - Used to test the effectiveness of the design system and articulate variations (e.g., empty cart vs 10 items).
 
+### 2. Component Decomposition & SRP
+> [!IMPORTANT]
+> **Monolithic components are forbidden**. Every component MUST have a single responsibility.
+- **Size Trigger**: Any component exceeding **200 lines** of template (HTML) or **150 lines** of logic (TS) MUST be refactored into smaller atoms, molecules, or organisms.
+- **Logical Trigger**: If a component manages more than 3 distinct UI concerns (e.g., header, sidebar, and list), it MUST be decomposed using Atomic Design.
+- **Self-Contained Atoms**: Atoms and Molecules must be completely stateless/dumb and generic. Logic should flow through Organisms and Smart Components.
+
 ### 2. Styling (SASS & BEM)
 - **Methodology**: Apply BEM methodology strictly: `block__element--modifier`.
 - **CSS Tokens**: Centralize values in CSS variables (`var(--token-name)`). Do not hardcode colors, spacing, or typography.
