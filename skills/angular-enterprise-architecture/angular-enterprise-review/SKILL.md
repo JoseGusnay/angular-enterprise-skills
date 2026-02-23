@@ -48,7 +48,7 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 - [ ] **Interceptors**: Are functional interceptors used instead of classes?
 
 ### 4. SonarQube & Clean Code Audit (General)
-- [ ] **Unused Elements**: Are there any unused variables, parameters, or imports?
+- [ ] **Unused Elements**: Are there any unused variables, parameters, or imports? (Mandatory unused parameters MUST be prefixed with `_`).
 - [ ] **Empty Functions**: Are there any empty functions or methods without a justifying comment? (MUST be flagged).
 - [ ] **Complexity**: Is Cognitive Complexity < 10? Are methods < 25 lines?
 - [ ] **Cleanliness**: Is there any commented-out code or `console.log`?
