@@ -3,11 +3,11 @@ name: angular-enterprise-core
 description: "Standards for Angular 17+ Enterprise Architecture. Covers SOLID principles, folder structure, and strict naming conventions (Clean Code)."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   triggers: ".ts, architecture, folder structure, naming conventions, SOLID, class, interface, package.json, feature, new module"
   role: architect
   scope: design
-  related-skills: angular-enterprise-components, angular-enterprise-review
+  related-skills: angular-enterprise-ui, angular-enterprise-data, angular-enterprise-testing, angular-enterprise-review
 ---
 
 # Angular Enterprise Core
@@ -34,14 +34,13 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
 ### 2. Directory Structure & Organization
-- **Smart Components**: `src/app/features/`. Business logic, service injection, and data fetching live HERE only.
+- **Smart Components / Features**: `src/app/features/`. Business logic, service injection, and data fetching live HERE only.
 - **Shared UI**: `src/app/shared/ui/`. Must follow **Atomic Design** (Atoms, Molecules, Organisms).
-  - *For detailed UI categorization rules, refer to the `angular-enterprise-components` skill.*
 - **Shared Utilities**: `src/app/shared/utils/`. Pure functions and helpers.
 - **Core Strategy**: Use `standalone: true` and `inject()` for all new developments.
 
-### 3. Naming Conventions
-- **Classes/Interfaces**: `PascalCase`. (No "I" prefix for interfaces).
+### 3. Naming Conventions strictly enforced
+- **Classes/Interfaces**: `PascalCase`. (No "I" prefix for interfaces, use `User` not `IUser`).
 - **Variables/Methods**: `camelCase`.
 - **Booleans**: Prefix with `is`, `has`, `can`, or `should`.
 - **Observables**: Suffix with `$`.
@@ -51,16 +50,4 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **NO `any`**: Use specific types or `unknown` with type guards.
 - **NO `Moment.js`**: Use native `Intl`, `date-fns`, or `dayjs`.
 - **NO acronyms**: Variable names must be descriptive (e.g., `userTransactions`, not `usrTxns`).
-- **NO "I" prefix**: Use `User`, not `IUser`.
 - **NO logic in files**: Keep `.ts` files focused; avoid "God Objects".
-
-## File Creation Rule (MANDATORY)
-> [!IMPORTANT]
-> **Every `.ts` file you create MUST have a companion `.spec.ts` file.** This applies to ALL file types without exception:
-> - Feature components → `my-feature.component.spec.ts`
-> - Services → `my-feature.service.spec.ts`
-> - Pipes → `my-pipe.pipe.spec.ts`
-> - Interceptors → `my-interceptor.interceptor.spec.ts`
-> - Utility functions → `my-util.spec.ts`
->
-> **Never deliver a `.ts` file without its `.spec.ts` pair.**

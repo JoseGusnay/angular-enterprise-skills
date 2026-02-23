@@ -3,11 +3,11 @@ name: angular-enterprise-review
 description: "Professional Code Auditor for Angular Enterprise Architecture. Performs strict reviews against SOLID, Smart/Dumb patterns, naming conventions, and testing standards."
 license: MIT
 metadata:
-  version: "1.0.0"
-  triggers: review, lint, audit, "check code", "refactor advice", "PR review"
+  version: "1.1.0"
+  triggers: review, lint, audit, "check code", "refactor advice", "PR review", SonarQube, quality gate
   role: auditor
   scope: verification
-  related-skills: angular-enterprise-core, angular-enterprise-components, angular-enterprise-reactive, angular-enterprise-engineering
+  related-skills: angular-enterprise-core, angular-enterprise-ui, angular-enterprise-data, angular-enterprise-testing
 ---
 
 # Angular Enterprise Reviewer (Auditor)
@@ -25,23 +25,36 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 
 ## Audit Checklist (Verification)
 
-### 1. Architectural Integrity
+### 1. Architectural Integrity (Core)
 - [ ] **Core**: Does the code follow SOLID and naming conventions?
 - [ ] **Structure**: Is the file in the correct directory (feature vs shared/ui)?
 - [ ] **Standalone**: Is everything `standalone: true` using `inject()`?
+- [ ] **Types**: Are there any instances of `any`? (Must be flagged as a critical error).
 
-### 2. Component & UI Audit
+### 2. Component & UI Audit (UI)
 - [ ] **Atomic Design**: Is the component correctly categorized (Atom, Molecule, Organism)?
 - [ ] **Quality**: Are logic, template, and styles separated? (NO inline).
 - [ ] **A11y**: Is the UI keyboard-navigable and semantically correct?
-- [ ] **Signals**: Are signals used instead of legacy decorators?
-
-### 3. Engineering & Performance
-- [ ] **1:1 Testing**: Does **EVERY** single `.ts` file (Components, Services, Pipes, Interceptors, Utils) have a matching `.spec.ts`? (CRITICAL).
-- [ ] **Coverage**: Is the coverage actually >85% for those files?
 - [ ] **Styles**: Is BEM used for SCSS? Are CSS variables (tokens) applied?
-- [ ] **Reactivity**: Are subscriptions protected with `takeUntilDestroyed()`?
-- [ ] **Complexity**: Is Cognitive Complexity < 10?
+- [ ] **Control Flow**: Are modern `@if` and `@for` used instead of legacy directives?
+
+### 3. Data & State Audit (Data)
+- [ ] **Signals**: Are signals used for synchronous state? (No legacy `@Input()`/`@Output()`).
+- [ ] **RxJS**: Are subscriptions protected with `takeUntilDestroyed()`?
+- [ ] **Interceptors**: Are functional interceptors used instead of classes?
+
+### 4. Engineering & Performance (Testing)
+- [ ] **1:1 Testing**: Does **EVERY** single `.ts` file have a matching `.spec.ts`? (CRITICAL).
+- [ ] **Coverage**: Is the coverage expected to be >85% for those files?
+- [ ] **Complexity**: Is Cognitive Complexity < 10 per method?
+
+### 5. SonarQube Quality Gate (Strict)
+> [!WARNING]
+> You must act as a strict SonarQube static analyzer. The code MUST NOT pass the audit if it violates any Enterprise Quality Gate conditions.
+- [ ] **Code Smells**: Is there any duplicated code (DRY violation) or overly nested if/else statements?
+- [ ] **Minor/Major Bugs**: Are there unused variables, impossible conditions, or missing error handling?
+- [ ] **Security Hotspots**: Are there any hardcoded secrets, tokens, or unsanitized inputs?
+- [ ] **Zero Technical Debt**: Does the new code introduce ANY technical debt? (Must be 0).
 
 ## How to Audit
 When asked to review code, provide a structured report:
