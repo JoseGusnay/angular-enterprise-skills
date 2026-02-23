@@ -60,6 +60,12 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Observables**: Suffix with `$`.
 - **Files**: Strict `kebab-case`.
 
+### 4. Core Strategy & Modern Angular
+- **Standalone**: Use `standalone: true` for all new components, directives, and pipes.
+- **Dependency Injection**: Use `inject()` for all DI. **NO Constructors**.
+- **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
+- **Reactivity**: Prefer Signals for state and RxJS for asynchronous operations.
+
 
 ## Constraints / MUST NOT DO
 - **NO Unused Code**: Variables, parameters, or imports that are not used MUST be removed.
