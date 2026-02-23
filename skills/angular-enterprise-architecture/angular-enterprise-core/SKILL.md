@@ -34,8 +34,9 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **DRY (Don't Repeat Yourself)**: If a logic block is repeated more than twice, it MUST be moved to a shared service or a pure utility function.
 - **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic or suggest external libraries (like NGRX) unless explicitly requested.
 - **Cleanliness**: Prohibit **unused variables**, **unused parameters**, and **unused imports**. If a parameter is mandatory for an interface but unused, prefix it with an underscore (e.g., `_data`).
-- **No Empty Functions**: Prohibit empty functions or methods. If a function is intended to be empty (e.g., a placeholder in a base class or `setDisabledState`), it MUST contain a comment explaining why.
-- **No Dead Code**: Prohibit commented-out code blocks. Use Git for history; do not leave "zombie code".
+- **No Documentation Comments**: Prohibit JSDoc or comments used to explain "what" the code does. Code MUST be declarative and self-documenting through clear naming.
+- **No Empty Functions**: Prohibit empty functions or methods. If a function is intended to be empty (e.g., `setDisabledState`), it MUST contain a single comment explaining the "why" (not what).
+- **No Dead Code**: Prohibit commented-out code blocks. Use Git for history.
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
 ### 2. Layered Architecture (SRP - Single Responsibility)
@@ -71,6 +72,7 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 ## Constraints / MUST NOT DO
 - **NO Unused Code**: Variables, parameters, or imports that are not used MUST be removed. (Exception: Prefix mandatory interface parameters with `_`).
 - **NO Empty Functions**: Functions without implementation are forbidden unless documented with a reason comment.
+- **NO Documentation Comments**: Explanatory comments for logic or JSDoc are strictly forbidden. Code must narrate itself.
 - **NO Commented-out Code**: Do not leave code blocks in comments. 
 - **NO `console.log`**: Standardize on a Logger service or remove before commit.
 - **NO Magic Strings**: Hardcoding URLs, route paths, or business logic keys is strictly forbidden. Use centralized constants.

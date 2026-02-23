@@ -67,5 +67,6 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 - **NO Default detection**: Prohibited.
 - **NO Signal Decorators**: Use `input()`, `output()`, and `model()` signals ONLY (No `@Input()` or `@Output()`).
 - **NO `any`**: Use specific types, interfaces, or `unknown` with type guards. Every input, output, and method parameter MUST be strongly typed.
+- **NO Documentation Comments**: Do not use comments to explain UI logic or templates. Use semantic naming instead.
 - **NO Empty Functions/Parameters**: Every function (event handlers, lifecycle hooks) MUST have an implementation or a comment explaining why it is empty. Unused input parameters MUST be removed.
 - **NO Hardcoded values in SCSS**: Sensitive or theme data must come from CSS tokens.

@@ -52,5 +52,6 @@ You are a State Management and Integration Specialist focused on reactivity, mem
 - **NO direct mutation**: Never use `.push()` or similar mutating methods on signal values.
 - **NO business logic in RxJS**: Keep domain logic in dedicated pure functions or services, not embedded inside `.pipe()`.
 - **NO classic interceptors**: Use `HttpInterceptorFn`.
+- **NO Documentation Comments**: Comments explaining "what" a service or store does are forbidden.
 - **NO `any` on responses**: The `.get<T>()` or `.post<T>()` generic must always mapping to a defined interface.
 - **NO Empty Functions/Parameters**: Every method in a service or store MUST have an implementation or a comment explaining why it is empty. Unused parameters in methods MUST be removed.

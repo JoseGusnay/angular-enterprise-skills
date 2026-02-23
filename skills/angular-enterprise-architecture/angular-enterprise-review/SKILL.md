@@ -51,7 +51,7 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 - [ ] **Unused Elements**: Are there any unused variables, parameters, or imports? (Mandatory unused parameters MUST be prefixed with `_`).
 - [ ] **Empty Functions**: Are there any empty functions or methods without a justifying comment? (MUST be flagged).
 - [ ] **Complexity**: Is Cognitive Complexity < 10? Are methods < 25 lines?
-- [ ] **Cleanliness**: Is there any commented-out code or `console.log`?
+- [ ] **Cleanliness**: Is there any commented-out code, `console.log`, or unnecessary JSDoc/explanatory comments? (Code must be self-documenting).
 - [ ] **DRY**: Is there any obvious logic duplication?
 - [ ] **Naming**: Is it descriptive? (No `data`, `res`, `usrTxns`).
 
