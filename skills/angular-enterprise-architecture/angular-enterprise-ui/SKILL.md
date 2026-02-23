@@ -28,11 +28,11 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 
 ### 1. Atomic Design Categorization Rules (Brad Frost Methodology)
 - **Atoms (Building Blocks)**: 
-    - The foundational building blocks of the UI (e.g., `<button>`, `<input>`, form labels).
+    - The foundational building blocks of the UI (e.g., `<button>`, `<app-label>`, `<app-error-message>`, custom `<app-input-text>`).
     - MUST NOT depend on any other component or have internal domain logic.
     - MUST demonstrate base styles and be reusable everywhere.
 - **Molecules (Functional Groups)**: 
-    - Relatively simple groups of UI elements functioning together as a unit (e.g., search form = label + input + button).
+    - Relatively simple groups of UI elements functioning together as a unit (e.g., **Form Field** = label atom + input atom + error atom).
     - Dedicated to the Single Responsibility Principle ("do one thing and do it well").
 - **Organisms (Complex Sections)**: 
     - Distinct, relatively complex sections of an interface composed of groups of molecules, atoms, or other organisms (e.g., Header, Product Grid).
