@@ -32,8 +32,9 @@ You are a State Management and Integration Specialist focused on reactivity, mem
 - **State Updates**: Store methods should return `Observable<T>`. This allows the **Component** to subscribe and trigger the action, while the Store uses `tap()` to update its internal signals.
 - **NO manual `.subscribe()` in Services/Stores**: Never use manual `.subscribe()` inside a service or store method. Return the `Observable` and let the **Component** handle the subscription (using `takeUntilDestroyed()`).
 
-### 2. Functional HTTP Interceptors
+### 2. Functional HTTP Interceptors & API Strategy
 - **Modern API**: Use `HttpInterceptorFn` (no class-based interceptors).
+- **Endpoint Centralization**: All API URLs must be constructed using `environment.apiUrl` combined with centralized constants (e.g., `API_ENDPOINTS.USERS`). Hardcoded strings in services are forbidden.
 - **Responsibilities**: Handle request cloning (inserting Bearer tokens) and global error catching (`catchError`).
 - **Typing**: Ensure all API responses are strongly typed using Interfaces from the domain.
 

@@ -25,8 +25,9 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 
 ## Audit Checklist (Verification)
 
-### 1. Architectural Integrity (Core)
 - [ ] **SRP (Single Responsibility)**: Are API calls, State (Signals), and Error UI logic separated into different layers (Services vs Stores)?
+- [ ] **No Magic Strings**: Are URLs and route paths centralized in constants?
+- [ ] **Environment Usage**: Is `environment.ts` used for environment-specific configurations?
 - [ ] **Core**: Does the code follow SOLID and naming conventions?
 - [ ] **Structure**: Is the file in the correct directory (feature vs shared/ui)?
 - [ ] **Standalone**: Is everything `standalone: true` using `inject()`?

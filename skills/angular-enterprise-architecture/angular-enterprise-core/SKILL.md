@@ -44,6 +44,9 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
     - Located in `src/app/features/X/state/` or `src/app/core/state/`.
     - **Stateful**: They hold **Signals**, call API services, and update state.
     - Orchestrate the data flow for the UI.
+- **Core Strategy & Configuration**:
+    - **Environments**: Use `src/environments/` for environment-specific variables (Develop, Test, Prod).
+    - **Constants**: Create a centralized configuration (e.g., `src/app/core/config/`) for `APP_ROUTES` and `API_ENDPOINTS`.
 - **Smart Components**: `src/app/features/`. Only inject Store Services, never API Services directly.
 
 ### 3. Core Strategy
@@ -59,6 +62,8 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Files**: Strict `kebab-case`.
 
 ## Constraints / MUST NOT DO
+- **NO Magic Strings**: Hardcoding URLs, route paths, or business logic keys is strictly forbidden. Use centralized constants.
+- **NO Environment Logic in Code**: Use `environment.ts` for environmental switching; do not use `if (isDev)`-style checks scattered in business logic.
 - **NO Constructors**: `constructor()` is completely forbidden. Use `inject()` for all Dependency Injection.
 - **NO `any`**: Use specific types or `unknown` with type guards.
 - **NO `Moment.js`**: Use native `Intl`, `date-fns`, or `dayjs`.
