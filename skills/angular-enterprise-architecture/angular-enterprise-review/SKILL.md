@@ -39,6 +39,7 @@ You are a Senior Technical Lead and Architect Auditor. Your goal is to identify 
 - [ ] **A11y**: Is the UI keyboard-navigable and semantically correct?
 - [ ] **Styles**: Is BEM used for SCSS? Are CSS variables (tokens) applied?
 - [ ] **Control Flow**: Are modern `@if` and `@for` used instead of legacy directives?
+- [ ] **Strict Typing**: Is the code 100% free of `any`? (Check inputs, outputs, and local variables).
 
 ### 3. Data & State Audit (Data)
 - [ ] **Signals**: Are signals used for synchronous state? (No legacy `@Input()`/`@Output()`).
