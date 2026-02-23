@@ -30,7 +30,7 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 > **NO technical debt policy**. Every commit must aim for 0 code smells.
 - **Cognitive Complexity**: Max **< 10** per method. If logic is nested deeper than 3 levels, it MUST be refactored.
 - **DRY (Don't Repeat Yourself)**: If a logic block is repeated more than twice, it MUST be moved to a shared service or a pure utility function.
-- **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic that isn't required today.
+- **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic or suggest external libraries (like NGRX or external stores) unless explicitly requested. State management via services + Signals is the standard.
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
 ### 2. Directory Structure & Organization
