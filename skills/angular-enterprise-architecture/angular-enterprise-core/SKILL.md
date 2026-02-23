@@ -33,11 +33,23 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic or suggest external libraries (like NGRX or external stores) unless explicitly requested. State management via services + Signals is the standard.
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
-### 2. Directory Structure & Organization
-- **Smart Components / Features**: `src/app/features/`. Business logic, service injection, and data fetching live HERE only.
-- **Shared UI**: `src/app/shared/ui/`. Must follow **Atomic Design** (Atoms, Molecules, Organisms).
-- **Shared Utilities**: `src/app/shared/utils/`. Pure functions and helpers.
-- **Core Strategy**: Use `standalone: true` and `inject()` for all new developments.
+### 2. Layered Architecture (SRP - Single Responsibility)
+> [!IMPORTANT]
+> **Decoupling is mandatory**. Do not mix API calls, State management, and Error UI logic in a single file.
+- **API Services (`*.service.ts`)**: 
+    - Located in `src/app/core/api/` or `features/X/api/`.
+    - **Stateless**: They only use `HttpClient` to return Observables.
+    - NO Signals, NO local error alerts, NO loading flags.
+- **Store/State Services (`*.store.ts` or `*.state.ts`)**: 
+    - Located in `src/app/features/X/state/` or `src/app/core/state/`.
+    - **Stateful**: They hold **Signals**, call API services, and update state.
+    - Orchestrate the data flow for the UI.
+- **Smart Components**: `src/app/features/`. Only inject Store Services, never API Services directly.
+
+### 3. Core Strategy
+- Use `standalone: true` and `inject()` for all new developments.
+- **NO Constructors**: `constructor()` is completely forbidden. Use `inject()` for all Dependency Injection.
+- **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
 ### 3. Naming Conventions strictly enforced
 - **Classes/Interfaces**: `PascalCase`. (No "I" prefix for interfaces, use `User` not `IUser`).
