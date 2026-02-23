@@ -28,7 +28,9 @@ You are a State Management and Integration Specialist focused on reactivity, mem
 ### 1. Signals vs RxJS (Declarative Approach)
 - **Signals**: Use for synchronous application and component state. APIs: `signal()`, `computed()`, `input()`, `output()`, `model()`, `viewChild()`.
 - **RxJS**: Use ALMOST EXCLUSIVELY for asynchronous operations and event streams.
-- **Async State (Angular 19+)**: Prefer **`rxResource()`** for data fetching. It automatically manages loading, error, and value states as signals.
+- **Async State (Angular 19/20+)**: Prefer **`rxResource()`** for data fetching. 
+    - **Note (Angular 20+)**: The property `loader` has been renamed to **`stream`** and `request` to **`params`**. Use the correct naming based on your project version.
+    - **Typing**: Computed signals derived from a resource MUST have an explicit initial value or fallback (e.g., `this.resource.value() ?? []`) to avoid `any` or `{}` issues.
 - **Trigger-based Signals**: To trigger actions (like a refresh or search), use a private `Subject` or `signal`, and pipe it to an observable that `toSignal()` consumes.
 - **NO manual `.subscribe()`**: Never use manual `.subscribe()` inside methods to update state. Use `toSignal()`, `rxResource()`, or the `async` pipe. For side-effects, use `tap()` within a pipe *before* converting to a signal.
 
