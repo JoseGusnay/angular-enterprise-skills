@@ -34,6 +34,7 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **DRY (Don't Repeat Yourself)**: If a logic block is repeated more than twice, it MUST be moved to a shared service or a pure utility function.
 - **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic or suggest external libraries (like NGRX) unless explicitly requested.
 - **Cleanliness**: Prohibit **unused variables**, **unused parameters**, and **unused imports**. Delete them immediately.
+- **No Empty Functions**: Prohibit empty functions or methods. If a function is intended to be empty (e.g., a placeholder in a base class), it MUST contain a comment explaining why.
 - **No Dead Code**: Prohibit commented-out code blocks. Use Git for history; do not leave "zombie code".
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
@@ -69,6 +70,7 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 
 ## Constraints / MUST NOT DO
 - **NO Unused Code**: Variables, parameters, or imports that are not used MUST be removed.
+- **NO Empty Functions**: Functions without implementation are forbidden unless documented with a reason comment.
 - **NO Commented-out Code**: Do not leave code blocks in comments. 
 - **NO `console.log`**: Standardize on a Logger service or remove before commit.
 - **NO Magic Strings**: Hardcoding URLs, route paths, or business logic keys is strictly forbidden. Use centralized constants.
