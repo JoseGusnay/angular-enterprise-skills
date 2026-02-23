@@ -49,7 +49,11 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 - **CSS Tokens**: Centralize values in CSS variables (`var(--token-name)`). Do not hardcode colors, spacing, or typography.
 - **Mandatory SASS**: Always use `.scss` files, avoid inline styles.
 
-### 3. UI Quality & Accessibility (A11y)
+### 3. Forms & Inputs (Reactive Forms Only)
+- **Reactive Forms**: ALWAYS use `ReactiveFormsModule`, `FormGroup`, `FormControl`, or `FormBuilder`. Template-driven forms (`FormsModule`) are strictly prohibited.
+- **Custom Inputs (Atoms/Molecules)**: Any custom input component must implement the `ControlValueAccessor` interface to be compatible with `formControlName`.
+
+### 4. UI Quality & Accessibility (A11y)
 > [!IMPORTANT]
 > **Accessibility is NOT optional**. Components must be keyboard-focusable and use semantic HTML.
 - **Semantic HTML**: Prioritize `<button>`, `<nav>`, `<main>`, `<article>`, `<header>`, `<footer>`.
@@ -59,6 +63,7 @@ You are a Senior Frontend Developer specialized in building highly optimized, de
 
 ## Constraints / MUST NOT DO
 - **NO Business Logic**: Service injection or domain state in `shared/ui/` is a CRITICAL violation.
+- **NO `FormsModule` or `[(ngModel)]`**: Two-way binding via ngModel is forbidden. Use ReactiveForms exclusively.
 - **NO Default detection**: Prohibited.
 - **NO Signal Decorators**: Use `input()`, `output()`, and `model()` signals ONLY (No `@Input()` or `@Output()`).
 - **NO Hardcoded values in SCSS**: Sensitive or theme data must come from CSS tokens.
