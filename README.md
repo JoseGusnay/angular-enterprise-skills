@@ -7,11 +7,11 @@ Este repositorio contiene una colección de habilidades (skills) para agentes de
 ### Angular Enterprise Architecture
 Una suite completa de estándares para aplicaciones Angular 17+ de nivel profesional:
 
-- **[Core](skills/angular-enterprise-architecture/angular-enterprise-core/SKILL.md)**: Arquitectura de carpetas, principios SOLID y Clean Code.
-- **[Components](skills/angular-enterprise-architecture/angular-enterprise-components/SKILL.md)**: Patrón Smart/Dumb, Standalone y OnPush.
-- **[Reactive](skills/angular-enterprise-architecture/angular-enterprise-reactive/SKILL.md)**: Gestión de estado moderno con Signals y RxJS.
-- **[Engineering](skills/angular-enterprise-architecture/angular-enterprise-engineering/SKILL.md)**: Estándares de testing (85% coverage) y SASS/BEM.
-- **[Reviewer](skills/angular-enterprise-architecture/angular-enterprise-review/SKILL.md)**: Auditor automático para asegurar la calidad del código.
+- **[Core](skills/angular-enterprise-architecture/angular-enterprise-core/SKILL.md)**: Arquitectura base, principios SOLID, inmutabilidad y convenciones de nombrado (Clean Code).
+- **[UI](skills/angular-enterprise-architecture/angular-enterprise-ui/SKILL.md)**: Interfaces gráficas con Atomic Design, patrón Smart/Dumb, SASS BEM estricto y Accesibilidad.
+- **[Data & State](skills/angular-enterprise-architecture/angular-enterprise-data/SKILL.md)**: Gestión de estado con Signals, arquitectura de red (Interceptors) y flujos RxJS (Async).
+- **[Testing](skills/angular-enterprise-architecture/angular-enterprise-testing/SKILL.md)**: Estándares de calidad, mocking y cobertura obligatoria >85% (1 archivo spec por cada ts).
+- **[Reviewer](skills/angular-enterprise-architecture/angular-enterprise-review/SKILL.md)**: Auditor automático configurado como Quality Gate de SonarQube para revisar Pull Requests.
 
 ## 🛠️ Herramientas Locales
 
