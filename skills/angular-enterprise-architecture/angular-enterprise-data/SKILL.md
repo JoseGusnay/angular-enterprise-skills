@@ -44,7 +44,9 @@ You are a State Management and Integration Specialist focused on reactivity, mem
 
 ## Constraints / MUST NOT DO
 - **NO State in API Services**: Service files that perform HTTP calls must not hold Signals or loading flags. State belongs to Stores/State Services.
-- **NO manual `.subscribe()` inside methods**: This is an anti-pattern. Expose the `Observable` and let the component or store handle it.
+- **NO manual `.subscribe()` inside methods (Service/Store)**: This is ABSOLUTELY PROHIBITED. Do not use `.subscribe()` to update signal state inside a class method.
+    - **For Fetching (GET)**: Use `rxResource()` (preferred) or `toSignal()`.
+    - **For Mutations (POST/PUT/DELETE)**: Use a declarative stream via `toSignal()` with a trigger signal, or return the `Observable` so the **Component** can handle the subscription (using `takeUntilDestroyed()`).
 - **NO `takeUntilDestroyed()` inside `ngOnInit`**: Calling `takeUntilDestroyed()` without passing a `DestroyRef` outside of an injection context throws a runtime error (NG0203).
 - **NO `constructor()`**: Use `inject()` for all dependency injection. Empty constructors are forbidden.
 - **NO direct mutation**: Never use `.push()` or similar mutating methods on signal values.
