@@ -25,12 +25,16 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 
 ## Core Standards
 
-### 1. Engineering Principles (SonarQube)
+### 1. Engineering Principles (SonarQube Standards)
 > [!IMPORTANT]
 > **NO technical debt policy**. Every commit must aim for 0 code smells.
 - **Cognitive Complexity**: Max **< 10** per method. If logic is nested deeper than 3 levels, it MUST be refactored.
+- **Method Length**: Keep methods concise (max **< 25 lines**). 
+- **Parameter Count**: Max **< 4 parameters** per function/method. Use objects/interfaces for more.
 - **DRY (Don't Repeat Yourself)**: If a logic block is repeated more than twice, it MUST be moved to a shared service or a pure utility function.
-- **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic or suggest external libraries (like NGRX or external stores) unless explicitly requested. State management via services + Signals is the standard.
+- **KISS & YAGNI**: Avoid over-engineering. Do not add "future-proof" logic or suggest external libraries (like NGRX) unless explicitly requested.
+- **Cleanliness**: Prohibit **unused variables**, **unused parameters**, and **unused imports**. Delete them immediately.
+- **No Dead Code**: Prohibit commented-out code blocks. Use Git for history; do not leave "zombie code".
 - **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
 
 ### 2. Layered Architecture (SRP - Single Responsibility)
@@ -49,11 +53,6 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
     - **Constants**: Create a centralized configuration (e.g., `src/app/core/config/`) for `APP_ROUTES` and `API_ENDPOINTS`.
 - **Smart Components**: `src/app/features/`. Only inject Store Services, never API Services directly.
 
-### 3. Core Strategy
-- Use `standalone: true` and `inject()` for all new developments.
-- **NO Constructors**: `constructor()` is completely forbidden. Use `inject()` for all Dependency Injection.
-- **Immutability**: Never mutate objects/arrays directly. Use spread operators or immutability libraries.
-
 ### 3. Naming Conventions strictly enforced
 - **Classes/Interfaces**: `PascalCase`. (No "I" prefix for interfaces, use `User` not `IUser`).
 - **Variables/Methods**: `camelCase`.
@@ -61,7 +60,11 @@ You are an Angular Architect responsible for enforcing SOLID principles, absolut
 - **Observables**: Suffix with `$`.
 - **Files**: Strict `kebab-case`.
 
+
 ## Constraints / MUST NOT DO
+- **NO Unused Code**: Variables, parameters, or imports that are not used MUST be removed.
+- **NO Commented-out Code**: Do not leave code blocks in comments. 
+- **NO `console.log`**: Standardize on a Logger service or remove before commit.
 - **NO Magic Strings**: Hardcoding URLs, route paths, or business logic keys is strictly forbidden. Use centralized constants.
 - **NO Environment Logic in Code**: Use `environment.ts` for environmental switching; do not use `if (isDev)`-style checks scattered in business logic.
 - **NO Constructors**: `constructor()` is completely forbidden. Use `inject()` for all Dependency Injection.
